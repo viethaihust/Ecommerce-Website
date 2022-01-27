@@ -1,0 +1,226 @@
+/*Product Filter*/
+
+.product-container {
+    margin-top: 3rem;
+}
+
+.product-container h4{
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--color-form-border);
+}
+
+.product-container-left{
+    border-right: 1px solid var(--color-form-border);
+    padding: 0;
+    margin: 0;
+}
+
+/* Check box */
+.product-container .checkbox{
+    margin-right: 2rem;
+    border: 1px solid var(--color-text-light);
+    border-radius: 0;
+}
+
+.product-container .filter-checkbox:last-child{
+    margin-top: 2rem;
+}
+
+.product-container .filter-checkbox .checkbox:not(:last-child){
+    border-bottom: none;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    height: 2rem;
+    font-size: 1.8rem;
+}
+
+.common_selector.brand, .common_selector.category {
+    display: none;
+}
+
+.checkbox__box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 2px solid var(--color-main-text);
+    flex-shrink: 0;
+    border-radius: 3px;
+}
+
+.checkbox__box:hover{
+    background-color: var(--color-theme-info);
+    color: var(--color-theme-info);
+}
+
+.brand-name, .category-name {
+    font-size: 1.3rem;
+    margin-left: 1rem;
+}
+
+.common_selector.brand:checked + .checkbox__box {
+    background: var(--color-main-text);
+    border-color: var(--color-main-text);
+}
+
+.common_selector.brand:checked + .checkbox__box::after{
+    content: '\2714';
+    color: #ffffff;
+    font-size: 0.8rem;
+}
+
+.common_selector.category:checked + .checkbox__box {
+    background: var(--color-main-text);
+    border-color: var(--color-main-text);
+}
+
+.common_selector.category:checked + .checkbox__box::after{
+    content: '\2714';
+    color: #ffffff;
+    font-size: 0.8rem;
+}
+
+/* Product right*/
+
+.product-container .product-card{
+    width: 12rem;
+	height: 12rem;
+}
+
+.product-container .banner{
+    width: 13rem;
+	height: 12rem;
+}
+
+.product-container .product-content{
+    width: 13.8rem;
+	height: 30rem;
+}
+
+.product-container .banner-hover{
+    width: 13rem;
+}
+
+.product-container .banner-hover .hover-item{
+	height: 12rem;
+}
+
+
+.product-container .add-to-cart-2{
+    position: relative;
+    margin-left: 0.5rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    border: solid 1px var(--color-product-fade-border);
+    outline: none;
+    background-color: var(--color-background);
+    color: var(--color-shop-button);
+}
+
+.product-container .add-to-cart-icon{
+    position: absolute;
+    font-size: 1.5rem;
+}
+
+.product-container .product-content-fade{
+    margin-top: -0.5rem;
+    width: 16rem;
+    height: 34.5rem;
+}
+
+.product-container .product-footer{
+    width: 14.5rem;
+    margin-top: -3rem;
+    border-top: 1px solid var(--color-form-border);
+}
+
+.product-container .product-footer-info{
+    margin-left: -0.9rem;
+}
+
+.product-container .product-badge{
+    margin-top: 0.3rem;
+    margin-left: 0rem;
+}
+
+.product-container .product-favorite{
+    margin-top: 0.3rem;
+    margin-left: 10.4rem;
+}
+
+/* Range Slider */
+
+.slider-range-container{
+    display: flex;
+    align-items: center;
+    margin-left: -10px;
+    margin-right: 10px;
+    margin-bottom: 3rem;
+}
+
+#price_range {
+    position: relative;
+    width: 93%;
+    height: 4px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.ui-slider-range.ui-widget-header.ui-corner-all {
+    width: 100%;
+    height: 4px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    border-radius: 5px;
+    background-color: var(--color-link);
+}
+
+.ui-slider-handle.ui-state-default.ui-corner-all {
+    -webkit-appearance: none;
+    height: 1.2rem;
+    width: 1.2rem;
+    background-color: var(--color-link);
+    cursor: pointer;
+    pointer-events: auto;
+    border-radius: 50%;
+    top: -8px;
+    border: none;
+    outline: none;
+}
+
+#price_show {
+    background-color: var(--color-link);
+    width: 80%;
+    position: relative;
+    padding: 10px 0;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+#price_show:before {
+    content: "";
+    position: absolute;
+    height: 0;
+    width: 0;
+    border-top: 15px solid var(--color-link);
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    margin: auto;
+    bottom: -14px;
+    left: 0;
+    right: 0;
+}

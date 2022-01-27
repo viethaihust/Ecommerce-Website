@@ -1,0 +1,137 @@
+/***********************
+	TRENDING PRODUCT
+************************/
+.trending-product-section{
+    margin-top: 3rem;
+}
+
+.trending-product-section .best-sellers-product-top{
+    margin-top: 1rem;
+}
+
+.trending-product-section
+    .special-offer-product{
+        background-image: url(../../assets/banner-10.png);
+        border: 0px;
+        border-radius: 0px;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .entry-subtitle.style-2 {
+        font-size: 0.6875rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--color-link);
+        margin-bottom: 0.625rem;
+    }
+
+    .entry-title.thin {
+        font-size: 1.875rem;
+        font-weight: 300;
+        margin-bottom: 1rem;
+    }
+
+    .entry-title.thin strong {
+        font-size: 2.125rem;
+        font-weight: 600;
+    }
+
+    .banner-button{
+        width: 6.5rem;
+    }
+
+    .trending-product-section .product-card a{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .trending-product-section .best-sellers-product-top .product-wrapper{
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        z-index: 60;
+        height: 15rem;
+    }
+    
+    .trending-product-section .best-sellers-product-top .product-card{
+        transform: scale(0.625);
+        margin-top: -2.5rem;
+        margin-left: -2rem;
+        display: flex;
+    }
+
+    .trending-product-section .best-sellers-product-top .product-content{
+        height: 18rem;
+        width: 25.75rem;
+        margin-top: 5rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        border: 1px solid transparent;
+    }
+
+    .trending-product-section .best-sellers-product-top .product-content-fade{
+        width: 27.75rem;
+        height: 20rem;
+    }
+
+    .trending-product-section .best-sellers-product-top .product-badge{
+        margin-top: -0.5rem;
+        margin-left: 0rem;
+    }
+
+    .trending-product-section .best-sellers-product-top .product-favorite{
+        margin-top: -0.5rem;
+        margin-left: 7rem;
+    }
+
+    .trending-product-section .best-sellers-product-top .navi .slide-icon-below{
+        height: 0.77rem;
+	    width: 0.77rem;
+    }
+
+    .trending-product-section .best-sellers-product-top .content-wrapper{
+        margin-left: -0.5rem;
+        margin-top: -9rem;
+    }
+
+    .trending-product-section .best-sellers-product-top .content-wrapper a{
+        margin-bottom: 0.75rem;
+    }
+
+    .trending-product-section .best-sellers-product-top .content-wrapper .product-rating{
+        margin-bottom: 0.75rem;
+    }
+
+    .trending-product-section .best-sellers-product-top .content-wrapper .product-footer-info{
+        margin-left: -1.5rem;
+        color: var(--color-text-light);
+    }
+
+    .trending-product-section .best-sellers-product-top .cart-wrapper{
+        border-bottom: 0;
+        margin-top: -1rem;
+        margin-left: -0.2rem;
+        width: 26rem;
+    }
+
+    .trending-product-section .best-sellers-product-top .add-to-cart-button{
+        width: 26rem;
+    }
+
+    .trending-product-section .best-sellers-product-top .product-wrapper:hover{
+        z-index: 99;
+    }
+    
+    .trending-product-section .best-sellers-product-top .product-wrapper:hover .product-content{
+        z-index: 100;
+    }
+
+    .trending-product-section .best-sellers-product-top .product-footer{
+        height: 4rem;
+    }
