@@ -1,0 +1,143 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.cart {
+	display: -webkit-flex;
+	display: flex;
+	margin:50px;
+	width:880px;
+   -webkit-flex-direction: column;
+    flex-direction: column;
+ }
+.cart_Total{
+width:350px;
+margin-left:900px;
+}
+.cart_fieldset{border:none;}
+
+.cart_Price
+{
+border:none;
+background-color:white;
+text-align:center;
+}
+.cart_Picture{
+border-bottom:1px solid; 
+border-color:RGB(174,186,194);
+}
+
+.cart_Session{  
+	
+	color:RGB(174,186,194);
+	text-align:center;
+	border-color:RGB(174,186,194);
+	border-bottom:1px solid;
+}  
+
+.cart_Product{
+font-weight: bold;
+width:800px;
+border-bottom:1px solid; 
+border-color:RGB(174,186,194);
+text-align: center;
+font-weight: strong;
+}
+
+.cart_Quantity{
+
+border:none;
+background-color:transparent;
+text-align:center;
+width:50px;
+font-weight: bold;
+margin:0px;
+height:30px;
+}
+
+.cart_Subtotal{
+border:none;
+background-color:white;
+text-align:center;
+width:50px;
+font-weight: bold;
+}
+
+.cart_Submit{
+background-color:RGB(4,30,66);
+color:RGB(174,186,194);
+border-radius: 5px;
+padding:10px 20px;
+font-weight: bold;
+}
+
+.cart_Common{
+width:400px;
+text-align: center;
+border-bottom:1px solid; 
+border-color:RGB(174,186,194);
+height:50px;
+}
+
+.cart_Delete{
+width:50px;
+text-align: center;
+border-bottom:1px solid; 
+border-color:RGB(174,186,194);
+height:50px;
+}
+
+.button_TypeL {
+
+	border-radius:20px 0px 0px 20px;
+	background-color:RGB(4,30,66);
+	border: solid 1px RGB(4,30,66);
+	height:30px;
+	width:30px;
+	color: RGB(174,186,194);
+	margin:0px;
+	padding:5px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+}
+.button_TypeR {
+	border-radius:0px 20px 20px 0px;
+	background-color:RGB(4,30,66);
+	border: solid 1px RGB(4,30,66);
+	height:30px;
+	width:30px;
+	color: RGB(174,186,194);
+	margin:0px;
+	padding:5px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+}
+.button_TypeD {
+	
+	background-color:transparent;
+	border: none;
+	height:30px;
+	width:30px;
+	color: black;
+	margin:0px;
+	padding:5px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+}
+input.cart_Shipping
+{
+margin:10px 0px 10px 0px;
+}
+td.cart_Shipping
+{
+width:400px;
+border-bottom:1px solid; 
+border-color:RGB(174,186,194);
+height:50px;
+text-align:right;
+}
+
+
+

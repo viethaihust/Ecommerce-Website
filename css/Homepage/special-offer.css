@@ -1,0 +1,224 @@
+/***********************
+	SPECIAL OFFER
+************************/
+
+.product-section{
+	margin-top: 2rem;
+}
+.best-sellers-product-top img {
+	width: 12rem;
+	height: auto;
+}
+.special-offer-product-right img {
+	width: 9.5rem;
+	height: auto;
+}
+.product-section img{
+	width: 10rem;
+	height: auto;
+}
+
+.special-offer-product{
+	border: 2px solid #ffc21f;
+	padding: 2rem;
+	border-radius: 8px;
+	width: 25.5rem;
+	height: 48rem;
+	margin-left: 0.75rem;
+	margin-top: 0.75rem;
+}
+
+.special-offer-product .product-wrapper{
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.special-offer-product .product-content{
+	width: 100%;
+	display: block;
+}
+
+.special-offer-product .product-wrapper h4{
+	font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: -3px;
+}
+
+.special-offer-product .product-wrapper span.timeleft{
+	font-size: 0.75rem;
+    color: var(--color-text-light);
+}
+
+.special-offer-product .countdown{
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-top: 0.9375rem;
+	font-weight: 500;
+}
+
+.special-offer-product .count-item:not(:first-child){
+	margin-left: 0.25rem;
+}
+
+.special-offer-product .count-item{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--color-theme-light);
+	border-radius: 4px;
+	font-size: 0.9375rem;
+    width: 2.5rem;
+    height: 2.625rem;
+	margin-right: 0.25rem;
+}
+
+.special-offer-product .banner-item{
+	transform: scale(1.6) translate(15%, 20%);
+}
+
+.special-offer-product .product-badge{
+	margin-top: 2rem;
+	margin-left: 1.25rem;
+}
+
+.special-offer-product .product-favorite{
+	margin-top: 2rem;
+	margin-left: 16.5rem;
+}
+
+.special-offer-product .content-wrapper{
+	margin-top: 6.5rem;
+}
+
+.special-offer-product .content-wrapper .banner-content-price{
+	margin-bottom: 0.75rem;
+}
+
+.special-offer-product .content-wrapper a{
+	margin-top: 0.75rem;
+	font-size: 1rem;
+}
+
+.special-offer-product .content-wrapper p{
+	margin-bottom: 1.5rem;
+}
+
+.special-offer-product .product-offer-count{
+	position: relative;
+	font-size: 0.75rem;
+	height: 6px;
+	width: 20rem;
+	border-radius: 50px;
+	background-color: var(--color-theme-light)
+}
+
+.special-offer-product .product-progress{
+	height: 6px;
+	width: 58%;
+	border-radius: 50px;
+	background-color: #ffc21f;
+}
+
+.special-offer-product .product-count-detail{
+	margin-top: 0.75rem;
+}
+
+.special-offer-product  .count-detail-text{
+	color: var(--color-text-light);
+}
+
+.special-offer-product strong{
+	color: var(--color-main-text);
+}
+
+.special-offer-product:hover .content-wrapper a{
+	color: var(--color-link);
+}
+
+/*Right Side*/
+
+.special-offer-product-right{
+    margin-left: 2rem;
+	width: 53.5rem;
+}
+
+.special-offer-product-right .product-footer{
+    width: 13rem;
+	height: 6rem;
+    border-top: 1px solid var(--color-form-border);
+}
+
+.special-offer-product-right .product-wrapper{
+	width: 11rem;
+}
+
+.special-offer-product-right .banner-item{
+    transform: scale(0.9);
+}
+
+.special-offer-product-right .product-badge{
+    margin-top: 2rem;
+    margin-left: 1.5rem;
+}
+
+.special-offer-product-right .product-favorite{
+    margin-top: 2rem;
+    margin-left: 10.5rem;
+}
+
+.special-offer-product-right .content-wrapper{
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
+}
+
+.special-offer-product-right .product-content-fade{
+    top: 2%;
+    width: 14rem;
+	height: 31.5rem;
+}
+
+.special-offer-product-right .price{
+    font-size: 1.25rem;
+}
+
+.special-offer-product-right .add-to-cart-2{
+    position: relative;
+    margin-left: 0rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    border: solid 1px var(--color-product-fade-border);
+    outline: none;
+    background-color: var(--color-background);
+    color: var(--color-shop-button);
+}
+
+.special-offer-product-right .add-to-cart-icon{
+    position: absolute;
+    font-size: 1.5rem;
+}
+
+.special-offer-product-right .product-footer-info li{
+    margin-left: 1.75rem;
+}
+
+.special-offer-product-right .content-wrapper a{
+	margin-top: -2rem;
+}
+
+.special-offer-product-right .navi{
+	margin-top: 9.5rem;
+}
+
+
+.special-offer-product-right .banner-content-price{
+	display: flex;
+	flex-direction: row;
+}
+
+.special-offer-product-right .add-to-cart-2{
+	margin-left: 1rem;
+}
