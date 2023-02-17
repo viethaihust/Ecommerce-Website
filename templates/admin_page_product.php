@@ -38,7 +38,7 @@ if(isset($_GET['delete'])){
    mysqli_query($conn, "DELETE FROM product_categories WHERE categoryId = $id");
    mysqli_query($conn, "DELETE FROM product_image WHERE product_id = $id");
    mysqli_query($conn, "DELETE FROM products WHERE id = $id");
-   header('location:admin_page_product.php');
+   $message[] = 'đã xóa sản phẩm';
 };
 
 ?>
@@ -51,8 +51,7 @@ if(isset($_GET['delete'])){
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>admin page</title>
-   <link rel="icon" href="../image/cropped-logo-dark-32x32.png"
-        sizes="32x32">
+   <link rel="icon" href="../image/cropped-logo-dark-32x32.png" sizes="32x32">
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -74,6 +73,8 @@ if(isset($message)){
 ?>
    
 <div class="container">
+
+   <a href="admin_page.php" class="btn" style="left: 2rem; position: fixed; width: 20rem">Trở lại</a>
 
    <div class="admin-product-form-container">
 

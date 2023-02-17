@@ -35,4 +35,26 @@ $(function() {
 			}
 		});		
 	});
+
+	$('#product').keyup(function(){  
+		var query = $(this).val();
+		if(query != '')  
+		{  
+			$.ajax({  
+				url:"action.php",  
+				method:"POST",  
+				data:{query:query},  
+				success:function(data)  
+				{  
+					$('#productList').fadeIn();  
+					$('#productList').html(data);  
+				}  
+			});  
+		}  
+	});
+	
+	$(document).on('click', 'li', function(){  
+		$('#product').val($(this).text());  
+		$('#productList').fadeOut();  
+	});
 });

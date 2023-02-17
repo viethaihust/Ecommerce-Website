@@ -20,6 +20,7 @@ $(function() {
 
     $("form[name*='AddToCartForm']").on('submit', function(event){
 		event.preventDefault();
+		var elemId = event.target.querySelector('.cart-wrapper')?.id;
 		var formData = $(this).serialize();
 		$.ajax({
 			type : 'POST',
@@ -29,7 +30,8 @@ $(function() {
 			success:function(response){
 				if(response.success == 1) {
 					$('#cart_reset').load(document.URL + ' #cart_reset');
-					$('#product-details_purchase-info').load(document.URL + ' #product-details_purchase-info');
+					$('.purchase-info').load(document.URL + ' .purchase-info');
+					$('#' + elemId).load(document.URL + ' #' + elemId + ' > *');
 				}
 			},
             error:function(data){

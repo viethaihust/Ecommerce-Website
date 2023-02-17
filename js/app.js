@@ -12,39 +12,6 @@ document.querySelector('.close-icon').addEventListener('click', () => {
     document.querySelector('.close-icon').classList.toggle('active')
 })
 
-/*Product Slider*/
-const slideContainer = document.querySelectorAll(".product-card");
-for(let i=0; i<slideContainer.length; i++){
-    function slider() {
-
-        const banneritems = slideContainer[i].querySelectorAll(".banner-item")
-        const hoveritems = slideContainer[i].querySelectorAll(".hover-item")
-        const slideiconbelows = slideContainer[i].querySelectorAll(".slide-icon-below")
-
-        var slideNum = 0
-        function manual(slideNum) {
-            slideiconbelows.forEach((slideiconbelow) => {
-                slideiconbelow.classList.remove("active")
-                banneritems.forEach((banneritem) => {
-                    banneritem.classList.remove("active")
-                })
-            })
-            slideiconbelows[slideNum].classList.add("active")
-            banneritems[slideNum].classList.add("active")
-        }
-
-        hoveritems.forEach((hoveritem, i) => {
-            hoveritem.addEventListener("mouseover", () => {
-                manual(i)
-                slideNum = i
-            })
-        })
-
-    }
-    slider();
-};
-
-
 /*Timer Function*/
 var countDownDate = new Date("Mar 15, 2023 9:20:30").getTime();
 
@@ -114,7 +81,7 @@ slideIcons.forEach((slideIcon, i) => {
 });
 
 //image slider next button
-nextBtn.addEventListener("click", () => {
+nextBtn?.addEventListener("click", () => {
     slides.forEach((slide) => {
         slide.classList.remove("active");
     });
@@ -133,7 +100,7 @@ nextBtn.addEventListener("click", () => {
 });
 
 //image slider previous button
-prevBtn.addEventListener("click", () => {
+prevBtn?.addEventListener("click", () => {
     slides.forEach((slide) => {
         slide.classList.remove("active");
     });
@@ -176,12 +143,12 @@ slideIcons[slideNumber].classList.add("active");
 repeater();
 
 //stop the image slider autoplay on mouseover
-slider.addEventListener("mouseover", () => {
+slider?.addEventListener("mouseover", () => {
     clearInterval(playSlider);
 });
     
 //start the image slider autoplay again on mouseout
-slider.addEventListener("mouseout", () => {
+slider?.addEventListener("mouseout", () => {
     repeater();
 });
 

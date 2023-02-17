@@ -104,21 +104,27 @@
                         </div>   
                         <div class="product-footer">
                             <form name="AddToCartForm" method="POST">
-                                <input type="hidden" name="product_id" value="<?php echo $item['id'] ?? '1'; ?>">
-                                <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>">
-                                <input type="hidden" name="quantity" value="<?php echo 1; ?>">
-                                <input type="hidden" name="action" value="AddToCart">
+                            <input type="hidden" name="product_id" value="<?php echo $item['id'] ?? '1'; ?>">
+                            <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>">
+                            <input type="hidden" name="quantity" value="<?php echo 1; ?>">
+                            <input type="hidden" name="action" value="AddToCart">
                             <?php
-                            if (in_array($item['id'], $Cart->getCartId($product->getData('cart_items')) ?? [])){
-                                echo    
-                                    '<div class="cart-wrapper">
-                                        <button type="submit" disabled class="btn add-to-cart-button">Đã thêm</button>
-                                    </div>';
+                            if (in_array($item['id'], $Cart->getCartId($product->getCartData($_SESSION['user_id'])) ?? [])){
+                            ?>
+                                    <div class="cart-wrapper">
+                                        <div class="cart-wrapper-button">
+                                            <button type="submit" disabled class="btn add-to-cart-button">Đã thêm</button>
+                                        </div>
+                                    </div>
+                            <?php
                             }else{
-                                echo    
-                                    '<div class="cart-wrapper">
-                                        <button type="submit" name="cart_submit" class="btn add-to-cart-button">Thêm vào giỏ</button>
-                                    </div>';
+                            ?>
+                                    <div class="cart-wrapper">
+                                        <div class="cart-wrapper-button">
+                                            <button type="submit" class="btn add-to-cart-button">Thêm vào giỏ</button>
+                                        </div>
+                                    </div>
+                            <?php
                                 }
                             ?>
                             </form>
@@ -134,6 +140,10 @@
 
             </div>
         </div>
+
+<?php
+    shuffle($product_shuffle);
+?>
 
         <div class="row">
             <div class="col-md-4 special-offer-product">

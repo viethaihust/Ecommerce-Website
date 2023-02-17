@@ -110,7 +110,7 @@ button.search-submit {
 	right: 0px;
 	bottom: 0px;
 
-	height: 100%;
+	height: 3.125rem;
 	padding: 0 1.5625rem;
 
 	font-weight: 600;
@@ -139,12 +139,16 @@ button.search-submit {
 	flex-shrink: 0;
 	align-items: center;
 	margin-left: 1.25rem;
-
+	color: black;
 	line-height: 1.1;
 	cursor: pointer;
 }
 
 .header-addons a {
+	color: currentColor;
+}
+
+.header-addons:hover {
 	color: currentColor;
 }
 
@@ -174,7 +178,7 @@ button.search-submit {
 	height: 1.125rem;
 	display: inline-flex;
 	justify-content: center;
-
+	align-items: center;
 	font-size: 0.6875rem;
 	font-weight: 700;
 
@@ -210,6 +214,7 @@ button.search-submit {
 	position: relative;
 	color: var(--color-main-text);
 	margin-right: 1.875rem;
+	z-index: 1;
 }
 
 .category > a {
@@ -339,4 +344,38 @@ button.search-submit {
 	.header-main .site-brand{
 		margin-right: 0.5rem;
 	}
+}
+
+#productList {
+	width: 100%;
+	position: absolute;
+
+}
+
+.search-list {
+	width: 100%;
+	height: 5rem;
+	display: flex;
+	align-items: center;
+}
+
+.search-list a{
+	color: black;
+}
+
+.search-list:hover {
+	background-color: #d5f3fe;
+}
+
+.search-list-link {
+	display: flex;
+	align-items: center;
+
+}
+
+.search-image{
+	width: 4rem;
+	height: auto;
+	float: left;
+	padding: 0 0.5rem;
 }

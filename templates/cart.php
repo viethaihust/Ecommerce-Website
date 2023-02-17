@@ -29,7 +29,7 @@ session_start();
 			?>
 		<form name="DeleteCartForm" method="POST">
 		<tr>
-			<td class="cart_Picture" style="width:21rem;"><img class="cart_img" src="../image/products/<?php echo $result_1->fetch_assoc()['product_image']; ?>"></td>
+			<td class="cart_Picture" style="width:21rem; padding: 0.5rem"><img class="cart_img" src="../image/products/<?php echo $result_1->fetch_assoc()['product_image']; ?>"></td>
 			<td class="cart_Product"> <?php echo $item['name']; ?> </td>
 			<td class="cart_Common" >
 			<input  class="cart_Price" style="color:black; width:auto" type="hidden" id ="cart_Price" name="cart_Price" value=<?php echo $item['price']; ?> disabled> <?php echo number_format($item['price'])," đ" ?? "Unknown"; ?>

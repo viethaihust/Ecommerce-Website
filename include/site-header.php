@@ -42,14 +42,12 @@
                     </div>
                     <div class="column right">
                         <div class="search-form">
-                            <form action="">
-                                <label for="product" class="icon-wrapper">
-                                    <span class="iconify" data-icon="carbon:search" style="cursor: default;"></span>
-                                </label>
-                                <input type="search" id="product" name="product" placeholder="Tìm kiếm sản phẩm..."
-                                    autocomplete="off" />
-                                <button type="" class="search-submit">Search</button>
-                            </form>
+                            <label for="product" class="icon-wrapper">
+                                <span class="iconify" data-icon="carbon:search" style="cursor: default;"></span>
+                            </label>
+                            <input type="search" id="product" name="product" placeholder="Tìm kiếm sản phẩm..."/>
+                            <button type="" class="search-submit">Search</button>
+                            <div id="productList"></div>
                         </div>
                         <div class="header-addons login-button">
                             <?php
@@ -93,25 +91,25 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="header-addons cart-button">
+                        <a href="cart.php" class="header-addons cart-button">
                             <div class="header-addons-icon">
-                                <a href="cart.php" class="icon-wrapper">
+                                <div class="icon-wrapper">
                                     <span class="iconify" data-icon="carbon:shopping-cart"></span>
-                                </a>
-                                <a href="cart.php" class="button-count" id="cart_reset">
+                            </div>
+                                <div class="button-count" id="cart_reset">
                                     <?php
                                         $items = $product->getCartData($_SESSION['user_id']);
                                         echo count($items);
                                     ?>
-                                </a>
+                                </div>
                             </div>
-                            <a href="cart.php">
+                            <div>
                                 <div class="header-addons-text">
                                     <div class="sub-text">Giỏ hàng</div>
                                     <div class="primary-text">2.530.000đ</div>
                                 </div>
-                            </a>
-                        </div>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>

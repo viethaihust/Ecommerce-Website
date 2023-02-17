@@ -107,7 +107,9 @@ if(!isset($_SESSION['user_id'])){
             
             <div class="col-md-9">
                 <div class="row filter_data">
+                    <?php
 
+                    ?>
                 </div>
             </div>
 

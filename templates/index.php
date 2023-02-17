@@ -2,8 +2,6 @@
 
 include('functions.php');
 
-shuffle($product_shuffle);
-
 @include 'config.php';
 
 header("Cache-Control: no cache");

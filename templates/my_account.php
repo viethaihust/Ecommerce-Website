@@ -8,12 +8,12 @@ if(!isset($_SESSION['user_id'])){
     header('location:login_form.php');
 }
 ?>
-	<div class="account-site">
-
 	<?php
 	    include_once('../include/header.php');
         include_once('../include/site-header.php');
 	?>
+
+	<div class="account-site">
 
 		<div class="b1">
 			<div class="hyper_link"><a href="">Trang chủ</a> > Tài khoản của tôi</div>
@@ -22,7 +22,7 @@ if(!isset($_SESSION['user_id'])){
 		
 		<div class="col-3" >
 			<div class="row" >
-				<div class="col-2"><img style="width:30px; height:30px;margin:8px;" src="https://klbtheme.com/machic/wp-content/uploads/2021/09/single-1.jpg"></div>
+				<div class="col"><img style="width: 5rem; margin:8px;" src="../image/userpics/<?php echo $_SESSION['user_avatar']; ?>"></div>
 				<div class="col">Tài khoản của <br><strong><?php echo $_SESSION['user_name'] ?></strong></div>
 			</div>
 		

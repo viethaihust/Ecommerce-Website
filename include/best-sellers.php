@@ -29,7 +29,6 @@
                 foreach ($product_shuffle as $item) { 
                     if ($number < 5) {
                         $number++;
-
                         $product_id = $item['id'];
                         $query_1 = "SELECT * FROM product_image WHERE product_image.product_id = $product_id";											
                         $result_1 = $conn->query($query_1);
@@ -117,16 +116,22 @@
                         <input type="hidden" name="quantity" value="<?php echo 1; ?>">
                         <input type="hidden" name="action" value="AddToCart">
                     <?php
-                    if (in_array($item['id'], $Cart->getCartId($product->getData('cart_items')) ?? [])){
-                        echo
-                            '<div class="cart-wrapper">
-                                <button type="submit" disabled class="btn add-to-cart-button">Đã thêm</button>
-                            </div>';
+                    if (in_array($item['id'], $Cart->getCartId($product->getCartData($_SESSION['user_id'])) ?? [])){
+                    ?>
+                            <div class="cart-wrapper" id="<?php echo $item['id'] ?>">
+                                <div class="cart-wrapper-button" id="<?php echo $item['id'] ?>">
+                                    <button type="submit" disabled class="btn add-to-cart-button">Đã thêm</button>
+                                </div>
+                            </div>
+                    <?php
                     }else{
-                        echo    
-                            '<div class="cart-wrapper">
-                                <button type="submit" class="btn add-to-cart-button">Thêm vào giỏ</button>
-                            </div>';
+                    ?>
+                            <div class="cart-wrapper" id="<?php echo $item['id'] ?>">
+                                <div class="cart-wrapper-button" id="<?php echo $item['id'] ?>">
+                                    <button type="submit" class="btn add-to-cart-button">Thêm vào giỏ</button>
+                                </div>
+                            </div>
+                    <?php
                         }
                     ?>
                     </form>

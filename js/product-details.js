@@ -18,7 +18,7 @@ function slideImage(){
 const prev = document.querySelector('.prev');
 const next = document.querySelector('.next');
 const input = document.querySelector('#value-spinner')
-prev.addEventListener("click", () => {
+prev?.addEventListener("click", () => {
     if (input.value < 2){
         input.value = 1;
     }
@@ -26,7 +26,7 @@ prev.addEventListener("click", () => {
     input.value = input.value - 1;
     }
 })
-next.addEventListener("click", () => {
+next?.addEventListener("click", () => {
     if (input.value > 99){
         input.value = 100;
     }

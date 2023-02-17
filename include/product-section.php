@@ -1,3 +1,6 @@
+    <?php
+        shuffle($product_shuffle);
+    ?>
     <!-- Special Offer Product Section-->
     <div class="container product-section">
         <div class="row">

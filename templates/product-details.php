@@ -163,7 +163,7 @@ if(!isset($_SESSION['user_id'])){
                                             <div class="number-spinner"><input type="number" name="quantity" id="value-spinner" min="1" max="100" value="1" ></div>
                                             <div class="next"><span>+</span></div>
                                         </div>
-                                        <div class="purchase-info" id="product-details_purchase-info">
+                                        <div class="purchase-info">
                                             <button type="submit"  name="cart_submit" disabled class = "btn">
                                                 Added to Cart
                                             </button>
@@ -182,7 +182,7 @@ if(!isset($_SESSION['user_id'])){
                                             <div class="number-spinner"><input type="number" name="quantity" id="value-spinner" min="1" max="100" value="1" ></div>
                                             <div class="next"><span>+</span></div>
                                         </div>
-                                        <div class = "purchase-info" id="product-details_purchase-info">
+                                        <div class = "purchase-info">
                                             <button type="submit"  name="cart_submit" class = "btn">
                                                 Add to Cart
                                             </button>
