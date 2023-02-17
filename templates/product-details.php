@@ -1,11 +1,9 @@
 <?php
 
 //fetch_data.php
-ob_start();
-include('../functions.php');
-@include 'config.php';
 
-shuffle($product_shuffle);
+include('functions.php');
+@include 'config.php';
 
 function listformat ($list) {
     $listformat = explode("\n", $list);
@@ -125,7 +123,7 @@ if(!isset($_SESSION['user_id'])){
             <div class="col-7 product-details-right">
                 <div class = "product-content">
                     <h2 class = "product-title"><?php echo  $item['name'] ?? "Unknown";  ?></h2>
-                    <a href = "#" class = "product-link">Model: MYL92LL/A | SKU: BE45VGRT</a>
+                    <a href = "#" class = "product-link">Model: MYL92LL/A | SKU: <?php echo $item['sku'] ?></a>
                     <div class = "product-rating">
                         <i class = "fas fa-star"></i>
                         <i class = "fas fa-star"></i>
@@ -165,7 +163,7 @@ if(!isset($_SESSION['user_id'])){
                                             <div class="number-spinner"><input type="number" name="quantity" id="value-spinner" min="1" max="100" value="1" ></div>
                                             <div class="next"><span>+</span></div>
                                         </div>
-                                        <div class = "purchase-info">
+                                        <div class="purchase-info" id="product-details_purchase-info">
                                             <button type="submit"  name="cart_submit" disabled class = "btn">
                                                 Added to Cart
                                             </button>
@@ -184,7 +182,7 @@ if(!isset($_SESSION['user_id'])){
                                             <div class="number-spinner"><input type="number" name="quantity" id="value-spinner" min="1" max="100" value="1" ></div>
                                             <div class="next"><span>+</span></div>
                                         </div>
-                                        <div class = "purchase-info">
+                                        <div class = "purchase-info" id="product-details_purchase-info">
                                             <button type="submit"  name="cart_submit" class = "btn">
                                                 Add to Cart
                                             </button>
@@ -238,7 +236,7 @@ if(!isset($_SESSION['user_id'])){
     <div id="ratingDetails" class="container"> 		
 		<div class="row">			
 			<div class="col-sm-3">				
-				<h4>Rating and Reviews</h4>
+				<h4>Đánh giá và nhận xét</h4>
 				<h2 class="bold padding-bottom-7"><?php printf('%.1f', $average); ?> <small>/ 5</small></h2>				
 				<?php
 				$averageRating = round($average, 0);
@@ -339,7 +337,7 @@ if(!isset($_SESSION['user_id'])){
 				</div>
 			</div>		
 			<div class="col-sm-3">
-				<button type="button" id="rateProduct" class="btn btn-info">Rate this product</button>
+				<button type="button" id="rateProduct" class="btn btn-info">Đánh giá sản phẩm</button>
 			</div>		
 		</div>
 		<div class="row">
@@ -359,7 +357,7 @@ if(!isset($_SESSION['user_id'])){
 					<div class="row">
 						<div class="col-sm-3">
 							<img src="../image/userpics/<?php echo $profilePic; ?>" class="img-rounded user-pic">
-							<div class="review-block-name">By <a href="#"><?php echo $product['name']; ?></a></div>
+							<div class="review-block-name">Bởi <a href="#"><?php echo $product['user_name']; ?></a></div>
 							<div class="review-block-date"><?php echo $reviewDate; ?></div>
 						</div>
 						<div class="col-sm-9">
@@ -390,7 +388,7 @@ if(!isset($_SESSION['user_id'])){
 		<div class="row">
             <form id="ratingForm" method="POST">					
                 <div class="form-group col-sm-3">
-                    <h4>Rate this product</h4>
+                    <h4>Đánh giá sản phẩm này</h4>
                     <button type="button" class="btn btn-warning btn-sm rateButton" aria-label="Left Align">
                         <i class = "fas fa-star" aria-hidden="true"></i>
                     </button>
@@ -411,11 +409,11 @@ if(!isset($_SESSION['user_id'])){
                     <input type="hidden" name="action" value="saveRating">
                 </div>		
                 <div class="form-group col-sm-3">
-                    <label for="comment">Comment*</label>
+                    <label for="comment">Nhận xét*</label>
                     <textarea class="form-control" rows="5" id="comment" name="comment" required></textarea>
                 </div>
                 <div class="form-group col-sm-3" style="margin-left: 2rem">
-                    <button type="submit" class="btn btn-info" id="saveReview">Save Review</button> <button type="button" class="btn btn-info" id="cancelReview">Cancel</button>
+                    <button type="submit" class="btn btn-info" id="saveReview">Lưu đánh giá</button> <button type="button" class="btn btn-info" id="cancelReview">Thoát</button>
                 </div>			
             </form>
 		</div>		
@@ -423,17 +421,5 @@ if(!isset($_SESSION['user_id'])){
 
     <?php
         include_once('../include/site-footer.php');
+        include_once('../include/footer.php');
     ?>
-
-
-
-    <script src="https://code.iconify.design/2/2.1.1/iconify.min.js"></script>
-
-    <script src="../js/app.js"></script>
-    <script src="../js/product-details.js"></script>
-    <script src="../js/rating.js"></script>
-    <script src="../js/cart.js"></script>
-
-</body>
-
-</html>

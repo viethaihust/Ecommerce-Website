@@ -11,7 +11,7 @@
 
 .trending-product-section
     .special-offer-product{
-        background-image: url(../../image/banner-10.png);
+        background: url('../../image/banner-10.png');
         border: 0px;
         border-radius: 0px;
         background-repeat: no-repeat;

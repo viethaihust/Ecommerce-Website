@@ -58,7 +58,7 @@
                                     ';
                             }
                             else
-                                echo '<a href="My account.php">';
+                                echo '<a href="my_account.php">';
                             ?>
                                 <div class="header-addons-icon">
                                     <div class="icon-wrapper">
@@ -100,7 +100,7 @@
                                 </a>
                                 <a href="cart.php" class="button-count" id="cart_reset">
                                     <?php
-                                        $items = $product->getCartData();
+                                        $items = $product->getCartData($_SESSION['user_id']);
                                         echo count($items);
                                     ?>
                                 </a>
@@ -124,7 +124,7 @@
                 <div class="header-wrapper">
                     <div class="column align-center left">
                         <div class="category">
-                            <a href="##" class="category-all">
+                            <a href="#" class="category-all">
                                 <div class="category-icon icon-wrapper">
                                     <span class="iconify" data-icon="carbon:menu"></span>
                                 </div>
@@ -144,7 +144,7 @@
                                     </a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="#">
+                                    <a href="product.php">
                                         <div class="category-icon icon-wrapper">
                                             <span class="iconify" data-icon="carbon:laptop"></span>
                                         </div>
@@ -152,7 +152,7 @@
                                     </a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="#">
+                                    <a href="product.php">
                                         <div class="category-icon icon-wrapper">
                                             <span class="iconify" data-icon="carbon:tablet"></span>
                                         </div>
@@ -160,7 +160,7 @@
                                     </a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="#">
+                                    <a href="product.php">
                                         <div class="category-icon icon-wrapper">
                                             <span class="iconify" data-icon="carbon:screen"></span>
                                         </div>
@@ -168,7 +168,7 @@
                                     </a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="#">
+                                    <a href="product.php">
                                         <div class="category-icon icon-wrapper">
                                             <span class="iconify" data-icon="carbon:headset"></span>
                                         </div>
@@ -176,7 +176,7 @@
                                     </a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="#">
+                                    <a href="product.php">
                                         <div class="category-icon icon-wrapper">
                                             <span class="iconify" data-icon="carbon:watch"></span>
                                         </div>
@@ -184,7 +184,7 @@
                                     </a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="#">
+                                    <a href="product.php">
                                         <div class="category-icon icon-wrapper">
                                             <span class="iconify" data-icon="carbon:battery-charging"></span>
                                         </div>
@@ -192,7 +192,7 @@
                                     </a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="#">
+                                    <a href="product.php">
                                         <div class="category-icon icon-wrapper">
                                             <span class="iconify" data-icon="carbon:home"></span>
                                         </div>
@@ -200,7 +200,7 @@
                                     </a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="#">
+                                    <a href="product.php">
                                         <div class="category-icon icon-wrapper">
                                             <span class="iconify" data-icon="carbon:forecast-lightning"></span>
                                         </div>
@@ -208,7 +208,7 @@
                                     </a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="#">
+                                    <a href="product.php">
                                         <div class="category-icon icon-wrapper">
                                             <span class="iconify" data-icon="carbon:percentage"></span>
                                         </div>
@@ -216,7 +216,7 @@
                                     </a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="#">
+                                    <a href="product.php">
                                         <div class="category-icon icon-wrapper">
                                             <span class="iconify" data-icon="carbon:notification-new"></span>
                                         </div>

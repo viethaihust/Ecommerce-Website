@@ -34,8 +34,8 @@ class Product
         return $resultArray;
     }
 
-    public function getCartData(){
-        $result = $this->db->con->query("SELECT * FROM products INNER JOIN cart_items ON cart_items.product_id = products.id");
+    public function getCartData($userId){
+        $result = $this->db->con->query("SELECT DISTINCT cart_id, id, product_id, name, price, quantity FROM products INNER JOIN cart_items ON cart_items.product_id = products.id INNER JOIN user ON cart_items.user_id = '".$userId."'");
 
         $resultArray = array();
 
@@ -47,7 +47,7 @@ class Product
     }
 
     public function getItemRating($itemId){
-        $result = $this->db->con->query("SELECT * FROM product_rating as r INNER JOIN user as u ON (r.userId = u.id) WHERE r.productId = '".$itemId."'");
+        $result = $this->db->con->query("SELECT * FROM product_rating as r INNER JOIN user as u ON (r.userId = u.user_id) WHERE r.productId = '".$itemId."'");
 
         $resultArray = array();
 
@@ -74,6 +74,6 @@ class Product
 	}
 
     public function saveRating($POST, $userID){		
-		$this->db->con->query("INSERT INTO product_rating (productId, userId, ratingNumber, comments, created, modified) VALUES ('".$POST['itemId']."', '".$userID."', '".$POST['rating']."', '".$POST["comment"]."', '".date("Y-m-d H:i:s")."', '".date("Y-m-d H:i:s")."')");
+		$this->db->con->query("INSERT INTO product_rating (productId, userId, ratingNumber, comments, created, modified) VALUES ('".$POST['itemId']."', '".$userID."', '".$POST['rating']."', '".htmlentities($POST["comment"])."', '".date("Y-m-d H:i:s")."', '".date("Y-m-d H:i:s")."')");
 	}
 }

@@ -345,7 +345,7 @@ img {
 .coupon-banner{
 	position: relative;
     background-color: var(--color-main-text);
-    background-image: url(../../assets/pattern.png);
+    background-image: url(../../image/pattern.png);
     background-repeat: no-repeat;
     background-position: 0 50%;
     border-radius: 3px;

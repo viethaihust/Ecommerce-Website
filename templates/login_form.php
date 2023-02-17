@@ -21,13 +21,13 @@ if(isset($_POST['submit'])){
 
       if($row['user_type'] == 'admin'){
 
-         $_SESSION['admin_name'] = $row['name'];
+         $_SESSION['admin_name'] = $row['user_name'];
          header('location:admin_page.php');
 
       }elseif($row['user_type'] == 'user'){
 
-         $_SESSION['user_name'] = $row['name'];
-         $_SESSION['user_id'] = $row['id'];
+         $_SESSION['user_name'] = $row['user_name'];
+         $_SESSION['user_id'] = $row['user_id'];
          $_SESSION['user_avatar'] = $row['avatar'];
          header('location:index.php');
 

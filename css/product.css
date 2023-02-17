@@ -187,7 +187,6 @@
 }
 
 .ui-slider-handle.ui-state-default.ui-corner-all {
-    -webkit-appearance: none;
     height: 1.2rem;
     width: 1.2rem;
     background-color: var(--color-link);
@@ -223,4 +222,11 @@
     bottom: -14px;
     left: 0;
     right: 0;
+}
+
+#loading
+{
+	text-align:center;
+	background: url('../image/loader.gif') no-repeat center;
+	height: 150px;
 }

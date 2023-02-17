@@ -68,12 +68,12 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: var(--color-theme-light);
 	border-radius: 4px;
 	font-size: 0.9375rem;
     width: 2.5rem;
     height: 2.625rem;
 	margin-right: 0.25rem;
+	background-color: var(--color-theme-light);
 }
 
 .special-offer-product .banner-item{

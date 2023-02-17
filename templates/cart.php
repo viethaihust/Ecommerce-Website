@@ -1,6 +1,6 @@
 <?php
-ob_start();
-include('../functions.php');
+
+include('functions.php');
 @include 'config.php';
 header("Cache-Control: no cache");
 session_start();
@@ -20,7 +20,7 @@ session_start();
 			<th class="cart_Session"></th>
 		</tr>
 		<?php
-		$items = $product->getCartData();
+		$items = $product->getCartData($_SESSION['user_id']);
 		foreach($items as $item){
 			$product_id = $item['id'];
 			$query_1 = "SELECT * FROM product_image WHERE product_image.product_id = $product_id";											
@@ -32,7 +32,7 @@ session_start();
 			<td class="cart_Picture" style="width:21rem;"><img class="cart_img" src="../image/products/<?php echo $result_1->fetch_assoc()['product_image']; ?>"></td>
 			<td class="cart_Product"> <?php echo $item['name']; ?> </td>
 			<td class="cart_Common" >
-			<input  class="cart_Price" style="color:black; width:auto" type="text" id ="cart_Price" name="cart_Price" value=<?php echo $item['price']; ?> disabled>
+			<input  class="cart_Price" style="color:black; width:auto" type="hidden" id ="cart_Price" name="cart_Price" value=<?php echo $item['price']; ?> disabled> <?php echo number_format($item['price'])," đ" ?? "Unknown"; ?>
 			</td>
 			<td class="cart_Common" >
 			
@@ -63,7 +63,7 @@ session_start();
 			<table >
 				<tr>
 					<th class="cart_Session">Tổng</th>
-					<td class="cart_Common"><input id="carttotal_Subtotal" value="0" disabled></td>
+					<td class="cart_Common"><input id="carttotal_Subtotal" value="" disabled></td>
 				</tr>
 				
 
@@ -75,13 +75,15 @@ session_start();
 </section>
 <?php
         include_once('../include/site-footer.php');
+		include_once('../include/footer.php');
 ?>
 <script>
 var total = 0;
 $('input[name="Subtotal"]').each(function(){
-   total+=parseInt($(this).val())
+   total+=parseInt($(this).val());
 });
-document.getElementById("carttotal_Subtotal").value = total;
+
+document.getElementById("carttotal_Subtotal").value = (total).toLocaleString() + " đ";
 function DecreaceQuantity(a){
 	var y=a.parentNode.previousElementSibling.firstElementChild.value
 	var x=a.nextElementSibling.value;
@@ -99,6 +101,3 @@ function IncreaceQuantity(a){
 }
 
 </script>
-<script src="../js/app.js"></script>
-<script src="../js/cart.js"></script>
-<script src="https://code.iconify.design/2/2.1.1/iconify.min.js"></script>

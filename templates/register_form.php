@@ -18,7 +18,7 @@ if(isset($_POST['submit'])){
 
    if(mysqli_num_rows($result) > 0){
 
-      $error[] = 'user already exist!';
+      $error[] = 'User đã tồn tại!';
 
    }else{
 
@@ -69,8 +69,8 @@ if(isset($_POST['submit'])){
       <input type="address" name="address" required placeholder="nhập địa chỉ của bạn">
       <input type="password" name="password" required placeholder="nhập mật khẩu của bạn">
       <input type="password" name="cpassword" required placeholder="xác nhận mật khẩu của bạn">
-      <input type="submit" name="submit" value="đăng ký" class="form-btn">
-      <p>Đã có tài khoản <a href="login_form.php">đăng nhập ngay</a></p>
+      <input type="submit" name="submit" value="Đăng ký" class="form-btn">
+      <p>Đã có tài khoản <a href="login_form.php">Đăng nhập ngay</a></p>
    </form>
 
 </div>

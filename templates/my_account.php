@@ -1,35 +1,17 @@
 <?php
-ob_start();
-include('../functions.php');
+
+include('functions.php');
 
 @include 'config.php';
 session_start();
+if(!isset($_SESSION['user_id'])){
+    header('location:login_form.php');
+}
 ?>
-<!Doctype html>
-<html>
-<head>
-<meta charset="UTF-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Elextra - Điện thoại, laptop, tablet, phụ kiện chính hãng</title>
-<link rel="icon" href="https://klbtheme.com/machic/wp-content/uploads/2021/08/cropped-logo-dark-32x32.png"
-	sizes="32x32">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
-
-<link href = "../bootstrap/css/bootstrap.css" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link href = "../css/misc.css" rel="stylesheet">
-
-<link rel="stylesheet" href="../css/Homepage/main.css" />
-<link rel="stylesheet" href="../css/Homepage/header.css" />
-<link rel="stylesheet" href="../css/Homepage/footer.css" />
-
-</head>
-<body>
 	<div class="account-site">
 
 	<?php
+	    include_once('../include/header.php');
         include_once('../include/site-header.php');
 	?>
 
@@ -46,24 +28,6 @@ session_start();
 		
 				<form action="My account.html" class="button_Type_Present">
 				<button class="button_Type_Side"><span class="iconify icon" data-icon="carbon:user-filled"></span> <a style="font-size:14px;margin:0px 0px 0px 10px;">Tài khoản của tôi</a></button>
-				</form>
-			
-				<form action="My notifications.html">
-				<button class="button_Type_Side"><span class="iconify icon" data-icon="carbon:notification-filled"></span> <a style="font-size:14px;margin:0px 0px 0px 10px;" > Thông báo của tôi</a></button>
-				</form>
-			
-				
-				<form action="My order.html">
-				<button class="button_Type_Side"><span class="iconify" data-icon="clarity:shopping-cart-solid"></span> <a style="font-size:14px;margin:0px 0px 0px 10px;" > Quản lý đơn hàng</a></button>
-				</form>
-			
-				<form action="My Favorite.html">
-				<button class="button_Type_Side"><span class="iconify icon" data-icon="bi:suit-heart-fill"></span> <a style="font-size:14px;margin:0px 0px 0px 10px;" > Sản phẩm yêu thích</a></button>
-				</form>
-				
-			
-				<form action="My Wishlist.html">
-				<button class="button_Type_Side"><span class="iconify icon" data-icon="bi:tag-fill"></span> <a style="font-size:14px;margin:0px 0px 0px 10px;" > Sản phẩm mua sau</a></button>
 				</form>
 			
 		</div>
@@ -161,11 +125,5 @@ session_start();
 
 	<?php
         include_once('../include/site-footer.php');
+		include_once('../include/footer.php');
 	?>
-
-	</div>
-	<script src="https://code.iconify.design/2/2.1.1/iconify.min.js"></script>
-	<script src="../../js/app.js"></script>
-</body>
-
-</html>

@@ -1,5 +1,5 @@
 document.querySelector('.category-all').addEventListener('click', () => {
-    document.querySelector('.category-menu').classList.toggle('active')
+    document.querySelector('.category-menu').classList.toggle('active');
 })
 
 document.querySelector('.responsive-icon').addEventListener('click', () => {
@@ -14,35 +14,36 @@ document.querySelector('.close-icon').addEventListener('click', () => {
 
 /*Product Slider*/
 const slideContainer = document.querySelectorAll(".product-card");
-
 for(let i=0; i<slideContainer.length; i++){
-    const slider = function(){
-        const banneritems = slideContainer[i].querySelectorAll(".banner-item");
-        const hoveritems = slideContainer[i].querySelectorAll(".hover-item");
-        const slideiconbelows = slideContainer[i].querySelectorAll(".slide-icon-below");
+    function slider() {
 
-        var slideNum = 0;
-        var manual = function(slideNum) {
+        const banneritems = slideContainer[i].querySelectorAll(".banner-item")
+        const hoveritems = slideContainer[i].querySelectorAll(".hover-item")
+        const slideiconbelows = slideContainer[i].querySelectorAll(".slide-icon-below")
+
+        var slideNum = 0
+        function manual(slideNum) {
             slideiconbelows.forEach((slideiconbelow) => {
-                slideiconbelow.classList.remove("active");
-            banneritems.forEach((banneritem) => {
-                banneritem.classList.remove("active");
-            });
-        });
-            slideiconbelows[slideNum].classList.add("active");
-            banneritems[slideNum].classList.add("active");
+                slideiconbelow.classList.remove("active")
+                banneritems.forEach((banneritem) => {
+                    banneritem.classList.remove("active")
+                })
+            })
+            slideiconbelows[slideNum].classList.add("active")
+            banneritems[slideNum].classList.add("active")
         }
 
         hoveritems.forEach((hoveritem, i) => {
             hoveritem.addEventListener("mouseover", () => {
-                manual(i);
-                slideNum = i;
-            });
-        });
+                manual(i)
+                slideNum = i
+            })
+        })
 
-    };
+    }
     slider();
 };
+
 
 /*Timer Function*/
 var countDownDate = new Date("Mar 15, 2023 9:20:30").getTime();

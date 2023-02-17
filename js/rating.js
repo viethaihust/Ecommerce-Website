@@ -1,5 +1,4 @@
 $(function() {
-    
  	$( "#rateProduct" ).click(function() {		
         $("#ratingDetails").hide();
         $("#ratingSection").show();

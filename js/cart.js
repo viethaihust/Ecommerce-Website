@@ -29,6 +29,7 @@ $(function() {
 			success:function(response){
 				if(response.success == 1) {
 					$('#cart_reset').load(document.URL + ' #cart_reset');
+					$('#product-details_purchase-info').load(document.URL + ' #product-details_purchase-info');
 				}
 			},
             error:function(data){

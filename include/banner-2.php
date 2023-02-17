@@ -2,7 +2,7 @@
     <div class="container shop-banner-2">
         <div class="row mt-lg-4 shop-banner-top">
             <div class="col">
-                <div class="banner-top" style="background-image: url();">
+                <div class="banner-top">
                     <h4 class="banner-title">
                         iPhone 13 Series
                         <strong>Thu cũ lên đời</strong>
