@@ -71,12 +71,12 @@ $('.common_selector').click(function(){
 $('#price_range').slider({
     range:true,
     min:0,
-    max:35000000,
-    values:[0, 35000000],
+    max:70000000,
+    values:[0, 70000000],
     step:1000000,
     stop:function(event, ui)
     {
-        $('#price_show').html((ui.values[0].toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") + " đ") + ' &emsp;&ensp; &ndash; &emsp;&ensp; ' + (ui.values[1].toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") + " đ"));
+        $('#price_show').html((ui.values[0].toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") + " đ") + ' &emsp; &ndash; &emsp; ' + (ui.values[1].toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") + " đ"));
         $('#hidden_minimum_price').val(ui.values[0]);
         $('#hidden_maximum_price').val(ui.values[1]);
         filter_data();

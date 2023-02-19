@@ -33,8 +33,14 @@ $(function() {
 					window.location.reload();
 				}
 			},
-			error:function(){
-				window.location.href = 'login_form.php';
+			error:function(data){
+				if(data.responseText == "blocked"){
+					window.location.reload();
+					alert("Không nhập từ xấu");
+				}
+				else{
+					window.location.href = 'login_form.php';
+				}
 			}
 		});		
 	});

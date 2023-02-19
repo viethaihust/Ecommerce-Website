@@ -20,8 +20,8 @@ session_start();
 				<h4>Giá bán</h4>    
                 <div class="list-group slider-range-container">
 					<input type="hidden" id="hidden_minimum_price" value="0" />
-                    <input type="hidden" id="hidden_maximum_price" value="35000000" />
-                    <p id="price_show">0 đ &ensp;-&ensp; 35,000,000 đ</p>
+                    <input type="hidden" id="hidden_maximum_price" value="70000000" />
+                    <p id="price_show">0 đ &ensp;-&ensp; 70,000,000 đ</p>
                     <div id="price_range"></div>
                 </div>
 

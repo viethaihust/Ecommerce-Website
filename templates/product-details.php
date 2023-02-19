@@ -56,10 +56,6 @@ session_start();
                 $oneStarRating +=1;
             }
         }
-        $average = 0;
-        if($ratingNumber && $count) {
-            $average = $ratingNumber/$count;
-        }	
     ?>
 
     <div class = "container product-details">

@@ -8,12 +8,25 @@ if(!empty($_POST['action']) && $_POST['action'] == 'saveRating'
 	&& !empty($_SESSION['user_id']) 
 	&& !empty($_POST['rating']) 
 	&& !empty($_POST['itemId'])) {
-		$userID = $_SESSION['user_id'];
-		$product->saveRating($_POST, $userID);
-		$data = array(
-			"success"	=> 1,	
-		);
-		echo json_encode($data);		
+		$bad_words = array("bad", "ugly", "bug", "horse", "cat");
+		$bad_word_count = 0;
+		foreach($bad_words as $bad_word){
+			if(str_contains($_POST['comment'], $bad_word)){
+				$bad_word_count++;
+			}
+		}
+		if($bad_word_count == 0){
+			$userID = $_SESSION['user_id'];
+			$product->saveRating($_POST, $userID);
+			$data = array(
+				"success"	=> 1,	
+			);
+			echo json_encode($data);
+		}
+		else{
+			echo "blocked";
+		}
+
 }
 
 if(!empty($_POST['action']) && $_POST['action'] == 'deleteCart' 
@@ -141,6 +154,7 @@ if(!empty($_POST["action"]) && $_POST['action'] == 'Filter')
 								<div class="product-rating">
 									<?php
 										$average = $product->getRatingAverage($row['id']);
+										$reviewCount = $product->getRatingCount($row['id']);
 										$averageRating = round($average, 0);
 										for ($i = 1; $i <= 5; $i++) {
 											$ratingClass = "far fa-star";
@@ -151,7 +165,7 @@ if(!empty($_POST["action"]) && $_POST['action'] == 'Filter')
 											<i class = "<?php echo $ratingClass; ?>"></i>
 									<?php } ?>
 									</br>
-									<span>(21 đánh giá)</span>
+									<span>(<?php echo $reviewCount ?> đánh giá)</span>
 								</div>
 								<div class="banner-content-price">
 									<span class="price">
