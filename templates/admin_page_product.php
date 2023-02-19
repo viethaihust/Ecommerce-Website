@@ -15,20 +15,41 @@ if(isset($_POST['add_product'])){
    $product_sku = $_POST['product_sku'];
    $product_brand = $_POST['product_brand'];
    $product_category = $_POST['product_category'];
-   $product_image = $_FILES['product_image']['name'];
-   $product_image_tmp_name = $_FILES['product_image']['tmp_name'];
-   $product_image_folder = '../image/products/'.$product_image;
+   $product_image_1 = $_FILES['product_image_1']['name'];
+   $product_image_tmp_name_1 = $_FILES['product_image_1']['tmp_name'];
+   $product_image_2 = $_FILES['product_image_2']['name'];
+   $product_image_tmp_name_2 = $_FILES['product_image_2']['tmp_name'];
+   $product_image_3 = $_FILES['product_image_3']['name'];
+   $product_image_tmp_name_3 = $_FILES['product_image_3']['tmp_name'];
 
-   if(empty($product_name) || empty($product_price) || empty($product_image) || empty($product_description)){
+   $product_image_folder_1 = '../image/products/'.$product_image_1;
+   $product_image_folder_2 = '../image/products/'.$product_image_2;
+   $product_image_folder_3 = '../image/products/'.$product_image_3;
+
+   if(empty($product_name) || empty($product_price) || empty($product_image_1) || empty($product_description)){
       $message[] = 'vui lòng nhập hết';
    }else{
       $insert = "INSERT INTO products(name, price, description, brand_id, category_id, sku) VALUES('$product_name', '$product_price', '$product_description', '$product_brand', '$product_category', '$product_sku');";
       $upload = mysqli_query($conn,$insert);
       if($upload){
          $product_id = mysqli_insert_id($conn);
-         $query = "INSERT INTO product_image(product_id, product_image) VALUES('$product_id', '$product_image');";
+         $query = "INSERT INTO product_image(product_id, product_image) VALUES('$product_id', '$product_image_1');";
          $result = mysqli_query($conn,$query);
-         move_uploaded_file($product_image_tmp_name, $product_image_folder);
+         move_uploaded_file($product_image_tmp_name_1, $product_image_folder_1);
+
+         if(!empty($product_image_2)){
+            $query = "INSERT INTO product_image(product_id, product_image) VALUES('$product_id', '$product_image_2');";
+            $result = mysqli_query($conn,$query);
+            move_uploaded_file($product_image_tmp_name_2, $product_image_folder_2);
+         }
+
+         if(!empty($product_image_3)){
+            $query = "INSERT INTO product_image(product_id, product_image) VALUES('$product_id', '$product_image_3');";
+            $result = mysqli_query($conn,$query);
+            move_uploaded_file($product_image_tmp_name_3, $product_image_folder_3);
+         }
+
+
          $message[] = 'đã thêm sản phẩm';
       }else{
          $message[] = 'không thể thêm sản phẩm';
@@ -43,7 +64,7 @@ if(isset($_GET['delete'])){
    mysqli_query($conn, "DELETE FROM product_categories WHERE categoryId = $id");
    mysqli_query($conn, "DELETE FROM product_image WHERE product_id = $id");
    mysqli_query($conn, "DELETE FROM products WHERE id = $id");
-   $message[] = 'đã xóa sản phẩm';
+   header('location:admin_page_product.php');
 };
 
 ?>
@@ -89,7 +110,7 @@ if(isset($message)){
          <input type="number" placeholder="nhập giá sản phẩm" name="product_price" class="box">
          <input type="text" placeholder="nhập mô tả sản phẩm" name="product_description" class="box">
          <input type="text" placeholder="nhập sku sản phẩm" name="product_sku" class="box">
-         <select name="product_brand" style="font-size: 2rem">
+         <select name="product_brand" class="select-option">
             <?php
                $query = "SELECT * FROM product_brands";
                $items = mysqli_query($conn,$query);
@@ -100,7 +121,7 @@ if(isset($message)){
                }
             ?>
          </select>
-         <select name="product_category" style="font-size: 2rem">
+         <select name="product_category" class="select-option">
             <?php
                $query = "SELECT * FROM product_categories";
                $items = mysqli_query($conn,$query);
@@ -111,7 +132,9 @@ if(isset($message)){
                }
             ?>
          </select>
-         <input type="file" accept="image/png, image/jpeg, image/jpg" name="product_image" class="box">
+         <input type="file" accept="image/png, image/jpeg, image/jpg" name="product_image_1" class="box">
+         <input type="file" accept="image/png, image/jpeg, image/jpg" name="product_image_2" class="box">
+         <input type="file" accept="image/png, image/jpeg, image/jpg" name="product_image_3" class="box">
          <input type="submit" class="btn" name="add_product" value="thêm sản phẩm">
       </form>
 
