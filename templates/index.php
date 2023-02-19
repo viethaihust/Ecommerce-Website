@@ -6,14 +6,10 @@ include('functions.php');
 
 header("Cache-Control: no cache");
 session_start();
-if(!isset($_SESSION['user_id'])){
-    header('location:login_form.php');
-}
-else{
-    $query = "UPDATE viewcount SET count = count + 1 WHERE id = 1;";
-    mysqli_query($conn, $query);
 
-}
+$query = "UPDATE viewcount SET count = count + 1 WHERE id = 1;";
+mysqli_query($conn, $query);
+
 ?>
 
     <?php

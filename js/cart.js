@@ -34,9 +34,9 @@ $(function() {
 					$('#' + elemId).load(document.URL + ' #' + elemId + ' > *');
 				}
 			},
-            error:function(data){
-                alert(JSON.stringify(data));
-            }
+            error:function(){
+				window.location.href = 'login_form.php';
+			}
 		});		
 	});
 });

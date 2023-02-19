@@ -32,11 +32,14 @@ $(function() {
 					$("#ratingForm")[0].reset();
 					window.location.reload();
 				}
+			},
+			error:function(){
+				window.location.href = 'login_form.php';
 			}
 		});		
 	});
 
-	$('#product').keyup(function(){  
+	$('#search-product').keyup(function(){  
 		var query = $(this).val();
 		if(query != '')  
 		{  
@@ -54,7 +57,7 @@ $(function() {
 	});
 	
 	$(document).on('click', 'li', function(){  
-		$('#product').val($(this).text());  
+		$('#search-product').val($(this).text());  
 		$('#productList').fadeOut();  
 	});
 });

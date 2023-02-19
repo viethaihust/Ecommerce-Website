@@ -73,6 +73,15 @@ class Product
 		return $average;	
 	}
 
+    public function getRatingCount($itemId){
+		$itemRating = $this->getItemRating($itemId);
+        $count = 0;		
+        foreach($itemRating as $itemRatingDetails){
+            $count += 1;			
+		}
+		return $count;
+	}
+
     public function saveRating($POST, $userID){		
 		$this->db->con->query("INSERT INTO product_rating (productId, userId, ratingNumber, comments, created, modified) VALUES ('".$POST['itemId']."', '".$userID."', '".$POST['rating']."', '".htmlentities($POST["comment"])."', '".date("Y-m-d H:i:s")."', '".date("Y-m-d H:i:s")."')");
 	}

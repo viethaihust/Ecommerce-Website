@@ -14,9 +14,6 @@ function listformat ($list) {
 
 header("Cache-Control: no cache");
 session_start();
-if(!isset($_SESSION['user_id'])){
-    header('location:login_form.php');
-}
 ?>
 
     <?php
@@ -125,12 +122,19 @@ if(!isset($_SESSION['user_id'])){
                     <h2 class = "product-title"><?php echo  $item['name'] ?? "Unknown";  ?></h2>
                     <a href = "#" class = "product-link">Model: MYL92LL/A | SKU: <?php echo $item['sku'] ?></a>
                     <div class = "product-rating">
-                        <i class = "fas fa-star"></i>
-                        <i class = "fas fa-star"></i>
-                        <i class = "fas fa-star"></i>
-                        <i class = "fas fa-star"></i>
-                        <i class = "fas fa-star-half-alt"></i>
-                        <span>4.7(21 đánh giá)</span>
+                        <?php
+                            $average = $product->getRatingAverage($item['id']);
+                            $reviewCount = $product->getRatingCount($item['id']);
+                            $averageRating = round($average, 0);
+                            for ($i = 1; $i <= 5; $i++) {
+                                $ratingClass = "far fa-star";
+                                if($i <= $averageRating) {
+                                    $ratingClass = "fas fa-star";
+                                }
+                            ?>
+                                <i class = "<?php echo $ratingClass; ?>"></i>
+                        <?php } ?>
+                        <span><?php printf('%.1f', $average); ?>(<?php echo $reviewCount ?> đánh giá)</span>
                     </div>
                     
                     <div class="product-stock">
@@ -155,8 +159,8 @@ if(!isset($_SESSION['user_id'])){
                             
                             <?php
 
-                                if (in_array($item['id'], $Cart->getCartId($product->getData('cart_items')) ?? [])){
-                                    echo
+                            if (in_array($item['id'], $Cart->getCartId($product->getCartData($_SESSION['user_id'] ?? '')) ?? [])){
+                                echo
                                     '<div class="product-info-top">
                                         <div class="spinner">
                                             <div class="prev"><span>-</span></div>
@@ -196,7 +200,6 @@ if(!isset($_SESSION['user_id'])){
 
                             ?>
                             <input type="hidden" name="product_id" value="<?php echo $item['id'] ?? '1'; ?>">
-                            <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>">
                             <input type="hidden" name="action" value="AddToCart">
                         </form>
 
@@ -348,7 +351,7 @@ if(!isset($_SESSION['user_id'])){
 				$itemRating = $product->getItemRating($_GET['product_id']);
 				foreach($itemRating as $product){				
 					$date=date_create($product['created']);
-					$reviewDate = date_format($date,"M d, Y");						
+					$reviewDate = date_format($date,"d/m/Y");						
 					$profilePic = "profile.png";
                     if($product['avatar']) {
 						$profilePic = $product['avatar'];	
@@ -356,7 +359,7 @@ if(!isset($_SESSION['user_id'])){
 				?>
 					<div class="row">
 						<div class="col-sm-3">
-							<img src="../image/userpics/<?php echo $profilePic; ?>" class="img-rounded user-pic">
+							<img src="../image/userpics/<?php echo $profilePic; ?>" style="height: 60px; width: 60px; border-radius: 6px;">
 							<div class="review-block-name">Bởi <a href="#"><?php echo $product['user_name']; ?></a></div>
 							<div class="review-block-date"><?php echo $reviewDate; ?></div>
 						</div>

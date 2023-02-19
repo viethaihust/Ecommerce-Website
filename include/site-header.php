@@ -45,7 +45,7 @@
                             <label for="product" class="icon-wrapper">
                                 <span class="iconify" data-icon="carbon:search" style="cursor: default;"></span>
                             </label>
-                            <input type="search" id="product" name="product" placeholder="Tìm kiếm sản phẩm..."/>
+                            <input type="search" id="search-product" name="search-product" placeholder="Tìm kiếm sản phẩm..."/>
                             <button type="" class="search-submit">Search</button>
                             <div id="productList"></div>
                         </div>
@@ -98,7 +98,7 @@
                             </div>
                                 <div class="button-count" id="cart_reset">
                                     <?php
-                                        $items = $product->getCartData($_SESSION['user_id']);
+                                        $items = $product->getCartData($_SESSION['user_id'] ?? '');
                                         echo count($items);
                                     ?>
                                 </div>
@@ -106,7 +106,6 @@
                             <div>
                                 <div class="header-addons-text">
                                     <div class="sub-text">Giỏ hàng</div>
-                                    <div class="primary-text">2.530.000đ</div>
                                 </div>
                             </div>
                         </a>

@@ -102,6 +102,8 @@
 
 	border: 1px solid var(--color-form-border);
 	border-radius: var(--size-form-radius);
+	border-bottom-left-radius: 0;
+
 }
 
 button.search-submit {
@@ -121,6 +123,8 @@ button.search-submit {
 
 	border-top-left-radius: 0;
 	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+
 }
 
 .search-form + .header-addons {
@@ -378,4 +382,18 @@ button.search-submit {
 	height: auto;
 	float: left;
 	padding: 0 0.5rem;
+}
+
+.productList-wrapper {
+	position: absolute;
+	width: 100%;
+	background-color: white;
+	z-index: 9999;
+	border: 1px solid var(--color-form-border);
+	border-width: 0 1px 1px 1px;
+	border-radius: 0px 0px 6px 6px;
+}
+
+.search-list:last-child {
+	border-radius: 0px 0px 6px 6px;
 }

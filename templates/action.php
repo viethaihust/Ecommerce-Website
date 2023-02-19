@@ -27,11 +27,10 @@ if(!empty($_POST['action']) && $_POST['action'] == 'deleteCart'
 }
 
 if(!empty($_POST['action']) && $_POST['action'] == 'AddToCart'
-	&& !empty($_POST['user_id']) 
 	&& !empty($_POST['product_id']) 
 	&& !empty($_POST['quantity'])) {
 		$productID = $_POST['product_id'];
-		$userID = $_POST['user_id'];
+		$userID = $_SESSION['user_id'];
 		$quantity = $_POST['quantity'];
 		$Cart->addToCart($_POST, $userID, $productID, $quantity);
 		$data = array(
@@ -140,20 +139,24 @@ if(!empty($_POST["action"]) && $_POST['action'] == 'Filter')
 									<?php echo $row['name'] ?>
 								</a>
 								<div class="product-rating">
-									<i class="fas fa-star"></i>
-									<i class="fas fa-star"></i>
-									<i class="fas fa-star"></i>
-									<i class="fas fa-star"></i>
-									<i class="fas fa-star-half-alt"></i></br>
+									<?php
+										$average = $product->getRatingAverage($row['id']);
+										$averageRating = round($average, 0);
+										for ($i = 1; $i <= 5; $i++) {
+											$ratingClass = "far fa-star";
+											if($i <= $averageRating) {
+												$ratingClass = "fas fa-star";
+											}
+										?>
+											<i class = "<?php echo $ratingClass; ?>"></i>
+									<?php } ?>
+									</br>
 									<span>(21 đánh giá)</span>
 								</div>
 								<div class="banner-content-price">
 									<span class="price">
 										<ins><?php echo number_format($row['price']) ?> đ</ins>
 									</span>
-									<button class="add-to-cart-2">
-										<span class="iconify add-to-cart-icon" data-icon="ant-design:shopping-cart-outlined"></span>
-									</button>
 								</div>
 								<p>2 ngày giao hàng</p>
 							</div>                    
@@ -175,12 +178,12 @@ if(!empty($_POST["action"]) && $_POST['action'] == 'Filter')
 	}
 }
 
-if(isset($_POST["query"]))  
+if(!empty($_POST["query"]))
 {  
 	$output = '';  
 	$query = "SELECT * FROM products WHERE name LIKE '%".$_POST["query"]."%' LIMIT 5;";  
 	$result = mysqli_query($conn, $query);  
-	$output = '<div style="position: absolute; width: 100%; background-color: white; z-index: 9999">';  
+	$output = '<div class="productList-wrapper">';  
 	if(mysqli_num_rows($result) > 0)  
 	{  
 		while($row = mysqli_fetch_array($result))  
@@ -198,7 +201,7 @@ if(isset($_POST["query"]))
 	}  
 	else  
 	{  
-		$output .= '<span>Product Not Found</span>';  
+		$output .= '<span style="margin-left: 1rem">Không thấy sản phẩm</span>';  
 	}  
 	$output .= '</div>';
 	echo $output;  

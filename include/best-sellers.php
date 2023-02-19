@@ -94,12 +94,19 @@
                             <?php echo  $item['name'] ?? "Unknown";  ?>
                         </a>
                         <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            <span>(21 đánh giá)</span>
+                        <?php
+                            $average = $product->getRatingAverage($item['id']);
+                            $reviewCount = $product->getRatingCount($item['id']);
+                            $averageRating = round($average, 0);
+                            for ($i = 1; $i <= 5; $i++) {
+                                $ratingClass = "far fa-star";
+                                if($i <= $averageRating) {
+                                    $ratingClass = "fas fa-star";
+                                }
+                            ?>
+                                <i class = "<?php echo $ratingClass; ?>"></i>
+                        <?php } ?>
+                            <span>(<?php echo $reviewCount ?> đánh giá)</span>
                         </div>
                         <div class="banner-content-price">
                             <span class="price">
@@ -112,11 +119,10 @@
                 <div class="product-footer">
                     <form name="AddToCartForm" method="POST">
                         <input type="hidden" name="product_id" value="<?php echo $item['id'] ?? '1'; ?>">
-                        <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>">
                         <input type="hidden" name="quantity" value="<?php echo 1; ?>">
                         <input type="hidden" name="action" value="AddToCart">
                     <?php
-                    if (in_array($item['id'], $Cart->getCartId($product->getCartData($_SESSION['user_id'])) ?? [])){
+                    if (in_array($item['id'], $Cart->getCartId($product->getCartData($_SESSION['user_id'] ?? '')) ?? [])){
                     ?>
                             <div class="cart-wrapper" id="<?php echo $item['id'] ?>">
                                 <div class="cart-wrapper-button" id="<?php echo $item['id'] ?>">

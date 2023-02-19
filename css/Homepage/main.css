@@ -559,3 +559,25 @@ form {
 		z-index: 9999;
 	}
 }
+
+@media (max-width: 576px){
+	.container {
+    max-width: 530px;
+	}
+}
+
+@media (max-width: 520px){
+	.container {
+    max-width: 500px;
+	}
+}
+
+@media (max-width: 530px){
+	.product-footer {
+		display: none;
+	}
+
+	.product-content-fade {
+		display: none;
+	}
+}

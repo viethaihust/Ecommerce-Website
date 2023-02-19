@@ -20,7 +20,7 @@ session_start();
 			<th class="cart_Session"></th>
 		</tr>
 		<?php
-		$items = $product->getCartData($_SESSION['user_id']);
+		$items = $product->getCartData($_SESSION['user_id'] ?? '');
 		foreach($items as $item){
 			$product_id = $item['id'];
 			$query_1 = "SELECT * FROM product_image WHERE product_image.product_id = $product_id";											
